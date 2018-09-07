@@ -14,7 +14,7 @@ __author__ = "Lucas van Dijk <lvandijk@broadinstitute.org>"
 
 # Whether we're on UGER or UGES
 CLUSTER_TYPE = "{{ cookiecutter.cluster_name }}"
-DOTKITS = " {{ cookiecutter.dotkits}} "
+DOTKITS = "{{ cookiecutter.dotkits}}"
 
 dependencies = sys.argv[1:-1]
 jobscript = sys.argv[-1]
