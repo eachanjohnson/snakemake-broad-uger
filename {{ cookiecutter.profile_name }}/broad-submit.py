@@ -14,6 +14,7 @@ __author__ = "Lucas van Dijk <lvandijk@broadinstitute.org>"
 
 # Whether we're on UGER or UGES
 CLUSTER_TYPE = "{{ cookiecutter.cluster_name }}"
+DOTKITS = " {{ cookiecutter.dotkits}} "
 
 dependencies = sys.argv[1:-1]
 jobscript = sys.argv[-1]
@@ -39,6 +40,7 @@ threads = job.get('threads', 1)
 project = cluster_conf.get('project', 'broad')
 queue = cluster_conf.get('queue', '')
 runtime = cluster_conf.get('runtime', "")
+using_r_dotkit = 'R-' in DOTKITS
 
 # -terse flag makes sure qsub only outputs job ID to stdout
 # -r signals that jobs may be restarted in cases of *cluster* crashes
@@ -74,6 +76,10 @@ if mem_mb:
 
 if runtime:
     command.extend(['-l', 'h_rt={}'.format(runtime)])
+
+# R dotkits aren't yet avaiable on RedHat7 machines, so request RedHat6
+if using_r_dotkit:
+    command.extend(['-l', 'os=RedHat6'])
 
 if dependencies:
     command.extend(['-hold_jid', ",".join(dependencies)])

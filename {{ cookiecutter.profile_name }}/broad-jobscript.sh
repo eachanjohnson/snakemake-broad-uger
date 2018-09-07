@@ -4,7 +4,7 @@
 
 source /broad/software/scripts/useuse
 use {{ cookiecutter.cluster_name }}
-use .anaconda3-5.0.3
+use {{ cookiecutter.dotkits }} 
 
 source activate {{ cookiecutter.conda_env }}
 
