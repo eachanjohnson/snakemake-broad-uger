@@ -2,5 +2,6 @@
     "profile_name": "broad-uger",
     "cluster_name": "UGER",
     "immediate_submit": false,
-    "conda_env": "snakemake"
+    "conda_env": "snakemake",
+    "dotkits": "Anaconda3 R-3.2"
 }
