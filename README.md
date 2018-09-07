@@ -51,7 +51,7 @@ Change to the directory containing your `Snakefile` and issue the following
 command:
 
 ```bash
-cookiecutter gh:broadinstitute/snakemake-broad-uger
+cookiecutter gh:eachanjohnson/snakemake-broad-uger
 ```
 
 This command will ask a few questions: 
@@ -60,8 +60,9 @@ This command will ask a few questions:
    (`broad-uger`).
 2. Whether to use the `--immediate-submit` option of Snakemake. Currently not 
    recommended, until [this fix][bug] is included in a release.
-3. Last but not least, specify the name (when using `-n` above) or the path 
+3. Specify the name (when using `-n` above) or the path 
    (when using `--prefix` above) to the conda environment you want to use.
+4. Which dotkits to use in job submission. You'll at least need to specify a conda distribution.
 
 [bug]:https://bitbucket.org/snakemake/snakemake/issues/753/using-immediate-submit-jobscripts-get
 
